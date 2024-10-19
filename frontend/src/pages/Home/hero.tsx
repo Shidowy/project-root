@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import defaultuser from '../../assets/defaultuser.png';
-import './Hero.css';
+import './hero.css';
 
 interface Testimonial {
   quote: string;
