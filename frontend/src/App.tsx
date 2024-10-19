@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Home from './pages/Home/home';
-import './app.css'
+import './App.css'
 
 function App() {
     const [message, setMessage] = useState<string>('');
