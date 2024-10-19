@@ -5,7 +5,7 @@ import './App.css';
 import SocialMediaDashboard from './pages/dashboard/dashboard';
 import Signup from './pages/signup/signup';
 import Login from './pages/login/login';
-import Hero from './pages/Home/hero';
+// import Hero from './pages/Home/hero';
 
 function App() {
   const [message, setMessage] = useState<string>('');
