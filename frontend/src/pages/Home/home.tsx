@@ -5,6 +5,7 @@ import SectionOne from './SectionOne';
 import CTA from './CTA';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import SocialMediaDashboard from '../dashboard/dashboard';
 
 const Home: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
       <SectionOne />
       <CTA />
       <Footer/>
+      <SocialMediaDashboard/>
     </div>
   );
 };

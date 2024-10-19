@@ -1,0 +1,248 @@
+.dashboard {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 20px;
+  }
+  
+  .sidebar button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .sidebar button svg {
+    margin-right: 10px;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input-wrapper {
+    position: relative;
+    margin-right: 10px;
+  }
+  
+  .search-input-wrapper svg {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+  }
+  
+  .search-container input {
+    padding: 5px 5px 5px 35px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .summary-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .summary-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .summary-card svg {
+    margin-bottom: 10px;
+  }
+  
+  .summary-card .value {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .summary-card .change {
+    color: green;
+  }
+  
+  .chart-section, .recent-activities {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .chart-container {
+    height: 300px;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .notification-badge {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 1000;
+  }
+  
+  .footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #666;
+  }
+  
+  .footer a {
+    color: #007bff;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      order: 2;
+      padding: 10px;
+    }
+  
+    .sidebar h2 {
+      display: none;
+    }
+  
+    .sidebar nav {
+      display: flex;
+      justify-content: space-around;
+    }
+  
+    .sidebar button {
+      flex-direction: column;
+      align-items: center;
+      padding: 5px;
+      margin-bottom: 0;
+    }
+  
+    .sidebar button svg {
+      margin-right: 0;
+      margin-bottom: 5px;
+    }
+  
+    .main-content {
+      order: 1;
+      padding: 10px;
+    }
+  
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .search-container {
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    .search-input-wrapper {
+      width: 100%;
+    }
+  
+    .search-container input {
+      width: 100%;
+    }
+  
+    .summary-section {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .chart-container {
+      height: 200px;
+    }
+  
+    .footer {
+      flex-direction: column;
+    }
+  
+    .footer a {
+      display: block;
+      margin: 5px 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .summary-section {
+      grid-template-columns: 1fr;
+    }
+  
+    .chart-container {
+      height: 150px;
+    }
+  }

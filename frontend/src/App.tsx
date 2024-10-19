@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Home from './pages/Pages/home';
+import Home from './pages/Home/home';
 
 function App() {
     const [message, setMessage] = useState<string>('');
