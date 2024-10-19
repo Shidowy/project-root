@@ -7,20 +7,39 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependency directory
+node_modules/
+
+# Vite and build output
+dist/
+.vite/
+.vitepress/
+
+# Static build output
 *.local
 
+# Coverage directory used by testing tools
+coverage/
+
+# TypeScript cache and build files
+*.tsbuildinfo
+*.d.ts
+*.js.map
+
+# Temporary files
+*.tmp
+*.temp
+
 # Editor directories and files
-.vscode/*
+.vscode/
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
 
 .vercel
