@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar: React.FC = () => {
@@ -13,9 +13,9 @@ const NavBar: React.FC = () => {
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#contact">Contact</a></li>
           <li> 
-            <a href='/login' className="quote-button">
+            <Link to='/login' className="quote-button">
               Get a Quote
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

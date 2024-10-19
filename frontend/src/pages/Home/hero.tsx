@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import defaultuser from '../../assets/defaultuser.png';
 import './hero.css';
 
@@ -29,6 +30,8 @@ const testimonials: Testimonial[] = [
 const Hero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [apiMessage, setApiMessage] = useState<string>(''); // State to store the API message
+  const navigate = useNavigate();
+  
 
   const handleDotClick = (index: number) => {
     setCurrentSlide(index);
@@ -43,11 +46,16 @@ const Hero: React.FC = () => {
         }
         return response.json();
       })
-      .then((data) => setApiMessage(data.message)) // Update state with API response
+      .then((data) => {
+        setApiMessage(data.message); // Update state with API response
+        navigate('/dashboard'); // Navigate to dashboard after fetching the data
+      })
       .catch((error) => {
         console.error('Error fetching the API:', error);
         setApiMessage('Failed to fetch the message.'); // Set error message
       });
+      
+
   };
 
   return (
@@ -58,7 +66,7 @@ const Hero: React.FC = () => {
           The most trusted platform for protecting your social media assets.
         </p>
         <button className="hero-button" onClick={handleButtonClick}>
-          GET YOUR QUOTE
+          <a className = "a_button" href='/login'>GET YOUR QUOTE</a>
         </button>
         {apiMessage && <p className="api-response">{apiMessage}</p>} {/* Display API message */}
       </div>

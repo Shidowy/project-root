@@ -1,12 +1,12 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './CTA.css';
 
 const CTA: React.FC = () => {
   return (
     <div className="cta-section">
       <h2>Securing Your Digital Presence With Us.</h2>
-      <button className="cta-button">Get Your Quote</button>
+      <Link to="/login" className="cta-button">Get Your Quote</Link>
     </div>
   );
 };
