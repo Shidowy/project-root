@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProductServices.css';
-import '../../app.css';
+// import '../../app.css';
 
 interface Product {
   id: number;
