@@ -13,9 +13,9 @@ const NavBar: React.FC = () => {
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#contact">Contact</a></li>
           <li> 
-            <button className="quote-button">
+            <a href='/login' className="quote-button">
               Get a Quote
-            </button>
+            </a>
           </li>
         </ul>
       </nav>

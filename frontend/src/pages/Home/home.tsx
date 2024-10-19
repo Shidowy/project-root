@@ -9,7 +9,7 @@ import SocialMediaDashboard from '../dashboard/dashboard';
 
 const Home: React.FC = () => {
   return (
-    <div className="home">
+    <div>
       <NavBar/>
       <Hero />
       <ProductServices />
