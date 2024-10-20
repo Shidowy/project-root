@@ -1,7 +1,6 @@
 import React from 'react';
 import './Footer.css';
-// Import social media icons from react-icons
-// import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   console.log('Rendering footer');
@@ -22,24 +21,24 @@ const Footer: React.FC = () => {
           <h4>Follow Us</h4>
           <ul className="social-icons">
             <li>
-              {/* <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                 <FaFacebookF />
-              </a> */}
+              </a>
             </li>
             <li>
-              {/* <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                 <FaTwitter />
-              </a> */}
+              </a>
             </li>
             <li>
-              {/* <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                 <FaInstagram />
-              </a> */}
+              </a>
             </li>
             <li>
-              {/* <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                 <FaLinkedinIn />
-              </a> */}
+              </a>
             </li>
           </ul>
         </div>
