@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
         <p>&copy; 2024 Mediasured. All rights reserved.</p>
         <nav>
           <ul className="footer-links">
-            <li><a href="#about">About</a></li>
+            <li><a href="/about">About</a></li>
             <li><a href="#team">Meet The Team</a></li>
             <li><a href="#privacy">Privacy Policy</a></li>
             <li><a href="#terms">Terms of Service</a></li>

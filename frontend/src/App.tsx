@@ -5,6 +5,9 @@ import './App.css';
 import SocialMediaDashboard from './pages/dashboard/dashboard';
 import Signup from './pages/signup/signup';
 import Login from './pages/login/login';
+import About from './pages/lesser/about/about';
+import Pricing from './pages/lesser/pricing/pricing';
+import Contact from './pages/lesser/contact/contact';
 // import Hero from './pages/Home/hero';
 
 function App() {
@@ -20,6 +23,9 @@ function App() {
     <Router>
       <div>
         <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />

@@ -8,8 +8,8 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
   font-family: 'Outfit', sans-serif;
   margin-top: 2%;
-  }
-  
+}
+
 .navbar-links {
   display: flex;
   gap: 20px;
@@ -18,15 +18,19 @@
   flex-grow: 1;
 }
 
+.navbar-logo {
+  text-decoration: none; /* Make sure this is added */
+}
 
 .navbar-logo p {
+  text-decoration: none; /* Remove underline */
   font-size: 28px !important;
   cursor: pointer;
   font-weight: 800;
   color: black !important;
   margin: 0;
 }
-  
+
 .navbar-middle-links {
   list-style-type: none;
   display: flex;
@@ -35,7 +39,7 @@
   margin: 0;
   margin-left: 400px; 
 }
-  
+
 .navbar-middle-links li {
   display: inline;
 }
@@ -45,27 +49,25 @@
   text-decoration: none;
   font-size: 16px;
 }
-  
+
 .navbar-middle-links a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Keep underline for other links */
 }
 
-  
 .quote-button {
   font-family: 'Outfit', sans-serif;
-  text-decoration: none;
   background-color: #6c63ff;
   padding: 10px 20px;
   border: none;
   border-radius: 25px;
   font-size: 18px;
   cursor: pointer;
-  text-decoration: none;
   transition: background-color 0.3s ease;
   color: white !important; /* Force text color to white */
+  text-decoration: none; /* Ensure no underline */
 }
-  
+
 .quote-button:hover {
-  text-decoration: none !important;
   background-color: #4a47e0; 
+  text-decoration: none !important; /* Ensure no underline on hover */
 }

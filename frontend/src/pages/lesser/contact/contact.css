@@ -1,0 +1,74 @@
+.contact-section {
+    padding: 60px; /* Increase padding for better spacing */
+    background-color: #ffffff; /* Ensure pure white background */
+    text-align: center;
+    max-width: 600px;
+    margin: 40px auto; /* Add margin to space from surrounding content */
+    border: 1px solid #e0e0e0; /* Optional: Add a subtle border for definition */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+  }
+  
+  .contact-section h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .contact-intro {
+    font-size: 18px;
+    color: #555; /* Slightly lighter color for intro text */
+    margin-bottom: 30px; /* Space between the intro and the form */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  textarea {
+    resize: vertical; /* Allow vertical resizing */
+    height: 100px; /* Set a minimum height */
+  }
+  
+  .contact-button {
+    background-color: #6c63ff;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .contact-button:hover {
+    background-color: #4a47e0;
+  }
+  
+  .success-message {
+    color: green;
+    margin-bottom: 20px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 20px;
+  }
+  

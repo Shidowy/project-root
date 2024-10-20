@@ -12,8 +12,12 @@ const Login: React.FC = () => {
     e.preventDefault();
     setError(''); // Clear any previous errors
 
-    // Directly navigate to the dashboard on form submission
-    navigate('/dashboard');
+    // Simulate a simple login process (replace this with actual logic)
+    if (email === 'test@example.com' && password === 'password') {
+      navigate('/dashboard'); // Navigate on successful login
+    } else {
+      setError('Invalid email or password.'); // Set error message
+    }
   };
 
   return (

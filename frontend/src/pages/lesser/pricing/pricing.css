@@ -1,0 +1,168 @@
+/* General Styles */
+body {
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+  }
+  
+  /* Pricing Section Styles */
+  .pricing-section {
+    padding: 60px;
+    background-color: #fff;
+    text-align: center;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+  }
+  
+  .pricing-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .pricing-description {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .pricing-info {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+  }
+  
+  .pricing-info h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #6c63ff; /* Accent color */
+  }
+  
+  .pricing-info ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .pricing-info ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* Pricing Cards */
+  .pricing-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-top: 40px;
+  }
+  
+  .pricing-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 30px;
+    width: 300px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Enable positioning for hover effect */
+  }
+  
+  .pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pricing-card h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333; /* Card title color */
+  }
+  
+  .pricing-card .price {
+    font-size: 28px;
+    color: #6c63ff; /* Accent color */
+    margin-bottom: 20px;
+  }
+  
+  .pricing-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .pricing-card ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #666; /* Text color for benefits */
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    margin-top: 40px;
+  }
+  
+  .cta-section h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Button Styles */
+  .cta-button {
+    text-decoration: none;
+    background-color: #6c63ff;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #4a47e0;
+  }
+  
+  /* Get in Touch Section */
+.get-in-touch {
+    margin-top: 60px;
+    text-align: center;
+    padding: 30px;
+    background-color: #fff; /* Light background for contrast */
+    border-radius: 10px;
+  }
+  
+  .get-in-touch h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333; /* Dark color for the heading */
+  }
+  
+  .get-in-touch p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px; /* Added margin for spacing */
+  }
+  
+  .get-in-touch .cta-button {
+    margin-top: 10px; /* Spacing above the button */
+    padding: 12px 25px;
+    border-radius: 30px;
+    background-color: #6c63ff;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .get-in-touch .cta-button:hover {
+    background-color: #4a47e0; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
+  }
+  

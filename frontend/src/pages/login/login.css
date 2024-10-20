@@ -4,70 +4,83 @@
     align-items: center;
     justify-content: center;
     height: 100vh; 
-    background-color: white; 
+    background-color: #f8f9fa; /* Light background color for contrast */
     padding: 40px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+    border-radius: 12px; /* Rounded corners for a softer look */
 }
-  
- 
+
 .login-section h2 {
     font-family: 'Outfit', sans-serif;
-    font-size: 28px;
+    font-size: 28px; /* Keep the font size */
     color: #6c63ff; 
     margin-bottom: 20px;
     text-align: center;
 }
-  
 
 .login-form {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 300px;
+    max-width: 300px; /* Decreased max-width for a more compact form */
+    align-items: center; /* Center the form elements */
 }
-  
- 
+
 .input-field {
-    padding: 15px;
-    margin: 10px 0;
+    padding: 15px; /* Increased padding for a thicker appearance */
+    margin: 10px 0; /* Kept margin for spacing */
     border: 2px solid #6c63ff; 
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px; /* Set a comfortable font size */
     outline: none;
+    width: 100%; /* Ensure input fields take full width */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transition for focus effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
-  
-  
+
+.input-field:focus {
+    border-color: #4a47e0; /* Change border color on focus */
+    box-shadow: 0 0 8px rgba(106, 86, 255, 0.5); /* Glow effect on focus */
+}
+
 .login-button {
     background-color: #6c63ff; 
     color: white;
-    padding: 15px;
+    padding: 15px; /* Adjusted padding for the button */
     margin-top: 20px;
     border: none;
-    border-radius: 8px;
-    font-size: 18px;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 18px; /* Slightly larger font size for visibility */
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s ease-in-out;
+    width: 100%; /* Ensure button takes full width */
 }
-  
 
 .login-button:hover {
     background-color: #4a47e0; 
     transform: translateY(-3px);
 }
-  
+
+.error-message {
+    color: red; /* Red color for errors */
+    margin-bottom: 15px; /* Space below the error message */
+    font-size: 14px; /* Font size for error messages */
+}
+
 .signup-link {
     margin-top: 20px;
     font-size: 14px;
     color: #333;
+    text-align: center; /* Center align the signup link */
 }
-  
+
 .signup-link a {
     color: #6c63ff;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
-  
+
 .signup-link a:hover {
     color: #4a47e0;
     text-decoration: underline;
