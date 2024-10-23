@@ -1,7 +1,7 @@
 import React from 'react';
 import './pricing.css';
-import NavBar from '../../Home/NavBar';
-import Footer from '../../Home/Footer';
+import NavBar from '../../../components/ui/NavBar';
+import Footer from '../../../components/ui/Footer';
 
 const Pricing: React.FC = () => {
   return (

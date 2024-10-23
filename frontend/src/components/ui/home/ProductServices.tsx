@@ -1,5 +1,5 @@
 import React from 'react';
-import './ProductServices.css';
+import '../../../styles/home/ProductServices.css';
 
 interface Product {
   id: number;

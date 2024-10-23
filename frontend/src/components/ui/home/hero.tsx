@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import defaultuser from '../../assets/defaultuser.png';
-import './hero.css';
+import defaultuser from '../../../assets/defaultuser.png';
+import '../../../styles/home/hero.css';
 
 interface Testimonial {
   quote: string;

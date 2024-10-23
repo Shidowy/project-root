@@ -1,5 +1,5 @@
 import React from 'react';
-import './SectionOne.css'; // Ensure this path matches your file structure
+import '../../../styles/home/SectionOne.css';
 
 const SectionOne: React.FC = () => {
   return (
