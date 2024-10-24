@@ -1,29 +1,48 @@
 import React, { useState, FormEvent } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
 import './login.css';
 
 const Login: React.FC = () => {
-  const [email, setEmail] = useState<string>(''); // State for email
-  const [password, setPassword] = useState<string>(''); // State for password
-  const [error, setError] = useState<string>(''); // State for error message
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState<string>('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError(''); // Clear any previous errors
+    setError('');
 
-    // Simulate a simple login process (replace this with actual logic)
-    if (email === 'test@example.com' && password === 'password') {
-      navigate('/dashboard'); // Navigate on successful login
+    if (email && password) {
+      try {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
+          email,
+          password
+        });
+
+        if (response.status === 200) {
+          // Save user data to localStorage
+          localStorage.setItem('user', JSON.stringify(response.data));
+          // Redirect to dashboard
+          navigate('/dashboard');
+        }
+      } catch (err: any) {
+        if (err.response?.status === 401) {
+          setError('Invalid email or password');
+        } else {
+          setError('Login failed. Please try again.');
+        }
+        console.error('Login error:', err);
+      }
     } else {
-      setError('Invalid email or password.'); // Set error message
+      setError('Please fill out all fields.');
     }
   };
 
   return (
     <section className="login-section">
       <h2>Login</h2>
-      {error && <p className="error-message">{error}</p>} {/* Display error message */}
+      {error && <p className="error-message">{error}</p>}
       <form className="login-form" onSubmit={handleSubmit}>
         <input
           type="email"
@@ -44,10 +63,10 @@ const Login: React.FC = () => {
         <button type="submit" className="login-button">Login</button>
       </form>
       <p className="signup-link">
-        Don't have an account? <Link to="/signup">Sign up</Link>
+        Don't have an account? <Link to="/signup">Sign Up</Link>
       </p>
     </section>
   );
-};
+}
 
 export default Login;

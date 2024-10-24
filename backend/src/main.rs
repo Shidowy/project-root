@@ -5,6 +5,7 @@ use sqlx::{PgPool, FromRow};
 use dotenvy::dotenv;
 use std::env;
 use serde::{Deserialize, Serialize};
+mod database;  // Add this line
 
 #[derive(Deserialize)]
 struct CreateUserRequest {
@@ -12,6 +13,13 @@ struct CreateUserRequest {
     email: String,
     password: String,
 }
+
+#[derive(Deserialize)]
+struct LoginRequest {
+    email: String,
+    password: String,
+}
+
 
 #[derive(Serialize, FromRow, Debug)]
 struct UserResponse {
@@ -24,15 +32,9 @@ struct UserResponse {
 async fn main() {
     dotenv().ok();
 
-    let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
-    let pool = PgPool::connect(&database_url)
-        .await
-        .expect("Failed to connect to the database");
+    let pool = database::establish_connection().await;
 
     println!("Connected to the database successfully!");
-
-    // Print the current users in the database
-    print_users(&pool).await.expect("Failed to fetch users");
 
     let cors = CorsLayer::new()
         .allow_origin(Any)
@@ -42,6 +44,7 @@ async fn main() {
     let app = Router::new()
         .route("/", get(root))
         .route("/signup", post(create_user))
+        .route("/login", post(login_user))
         .layer(Extension(pool))
         .layer(cors);
 
@@ -68,9 +71,10 @@ async fn create_user(
     Json(user): Json<CreateUserRequest>,
 ) -> impl IntoResponse {
     match sqlx::query!(
-        r#"INSERT INTO "User" (name, email) VALUES ($1, $2) RETURNING id, name, email"#,
+        r#"INSERT INTO "User" (name, email, password) VALUES ($1, $2, $3) RETURNING id, name, email"#,
         user.name,
-        user.email
+        user.email,
+        user.password  // In a production environment, ensure this is hashed!
     )
     .fetch_one(&pool)
     .await {
@@ -80,8 +84,6 @@ async fn create_user(
                 name: row.name,
                 email: Some(row.email),
             };
-            // Print the current users in the database after inserting a new user
-            print_users(&pool).await.expect("Failed to fetch users");
             (StatusCode::CREATED, Json(user_response)).into_response()
         },
         Err(e) => {
@@ -105,16 +107,42 @@ async fn create_user(
     }
 }
 
-async fn print_users(pool: &PgPool) -> Result<(), sqlx::Error> {
-    let users: Vec<UserResponse> = sqlx::query_as!(UserResponse, r#"SELECT id, name, email FROM "User""#)
-        .fetch_all(pool)
-        .await?;
-
-    println!("Current users in the database:");
-    for user in users {
-        println!("{:?}", user);
+async fn login_user(
+    Extension(pool): Extension<PgPool>,
+    Json(credentials): Json<LoginRequest>,
+) -> impl IntoResponse {
+    match sqlx::query!(
+        r#"SELECT id, name, email FROM "User" 
+        WHERE email = $1 AND password = $2"#,
+        credentials.email,
+        credentials.password
+    )
+    .fetch_optional(&pool)
+    .await {
+        Ok(Some(row)) => {
+            let user_response = UserResponse {
+                id: row.id,
+                name: row.name,
+                email: Some(row.email),
+            };
+            (StatusCode::OK, Json(user_response)).into_response()
+        },
+        Ok(None) => {
+            (
+                StatusCode::UNAUTHORIZED,
+                Json(serde_json::json!({
+                    "error": "Invalid email or password"
+                }))
+            ).into_response()
+        },
+        Err(e) => {
+            eprintln!("Database error: {:?}", e);
+            (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                Json(serde_json::json!({
+                    "error": "Login failed"
+                }))
+            ).into_response()
+        }
     }
-
-    Ok(())
 }
-

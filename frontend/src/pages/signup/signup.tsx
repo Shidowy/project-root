@@ -1,4 +1,3 @@
-// frontend/src/pages/signup/signup.tsx
 import React, { useState, FormEvent } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -24,9 +23,7 @@ const Signup: React.FC = () => {
         });
 
         if (response.status === 201) {
-          // Save user data to localStorage (optional)
           localStorage.setItem('user', JSON.stringify(response.data));
-          // Redirect to dashboard
           navigate('/dashboard');
         }
       } catch (err: any) {
