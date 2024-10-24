@@ -1,30 +1,51 @@
+// frontend/src/pages/signup/signup.tsx
 import React, { useState, FormEvent } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
 import './signup.css';
 
 const Signup: React.FC = () => {
-  const [name, setName] = useState<string>(''); // State for user's name
+  const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError(''); // Clear any previous errors
+    setError('');
 
-    // For now, simply navigate to the dashboard after form submission
     if (name && email && password) {
-      navigate('/dashboard');
+      try {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
+          name,
+          email,
+          password
+        });
+
+        if (response.status === 201) {
+          // Save user data to localStorage (optional)
+          localStorage.setItem('user', JSON.stringify(response.data));
+          // Redirect to dashboard
+          navigate('/dashboard');
+        }
+      } catch (err: any) {
+        if (err.response?.status === 409) {
+          setError('Email already exists');
+        } else {
+          setError('Failed to create account. Please try again.');
+        }
+        console.error('Signup error:', err);
+      }
     } else {
-      setError('Please fill out all fields.'); // Set error message if fields are empty
+      setError('Please fill out all fields.');
     }
   };
 
   return (
     <section className="signup-section">
       <h2>Sign Up</h2>
-      {error && <p className="error-message">{error}</p>} {/* Display error message */}
+      {error && <p className="error-message">{error}</p>}
       <form className="signup-form" onSubmit={handleSubmit}>
         <input
           type="text"
