@@ -18,7 +18,6 @@ struct UserResponse {
     id: i32,
     name: Option<String>,
     email: Option<String>,
-    password: Option<String>,
 }
 
 #[tokio::main]
