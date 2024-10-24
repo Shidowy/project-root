@@ -1,23 +1,36 @@
-import { useEffect, useState } from 'react';
+// App.tsx
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
+import About from './pages/lesser/about/about';
+import Contact from './pages/lesser/contact/contact';
+import Pricing from './pages/lesser/pricing/pricing';
 import Home from './pages/Home/home';
-import './App.css';
-import SocialMediaDashboard from './pages/dashboard/dashboard';
 import Signup from './pages/signup/signup';
 import Login from './pages/login/login';
-import About from './pages/lesser/about/about';
-import Pricing from './pages/lesser/pricing/pricing';
-import Contact from './pages/lesser/contact/contact';
-// import Hero from './pages/Home/hero';
+import SocialMediaDashboard from './pages/dashboard/dashboard';
+
+interface BackendResponse {
+  message: string;
+  status: string;
+}
 
 function App() {
   const [message, setMessage] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    axios.get(import.meta.env.VITE_API_URL)
-      .then(response => setMessage(response.data))
-      .catch(error => console.error('Error fetching data:', error));
+    axios.get<BackendResponse>(import.meta.env.VITE_API_URL)
+      .then(response => {
+        setMessage(response.data.message); // Access the message property
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setError('Failed to fetch data');
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -33,9 +46,10 @@ function App() {
           <Route path="/dashboard" element={<SocialMediaDashboard />} />
         </Routes>
         <div>
-          {message 
-            ? message 
-            : 'Currently loading the necessary content. Please wait while we retrieve the data...'}
+          <h1>Message from Backend</h1>
+          {loading && <p>Loading...</p>}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {!loading && !error && <p>{message}</p>} {/* Display just the message string */}
         </div>
       </div>
     </Router>

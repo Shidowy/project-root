@@ -1,41 +1,47 @@
-use axum::{Router, Extension};
-use hyper::Server; // Import from hyper
-use sqlx::PgPool;
+use axum::{http::StatusCode, response::IntoResponse, routing::get, Json, Router, Extension};
 use std::net::SocketAddr;
-use dotenvy::dotenv; // Correct import for dotenvy
+use tower_http::cors::{Any, CorsLayer};
+use sqlx::PgPool;
+use dotenvy::dotenv;
 use std::env;
 
 #[tokio::main]
 async fn main() {
-    dotenv().ok(); // Load environment variables from .env file
+    // Load .env file
+    dotenv().ok();
 
-    // Get the database URL from the environment
+    // Get database URL and connect
     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
-
-    // Connect to the PostgreSQL database
     let pool = PgPool::connect(&database_url)
         .await
         .expect("Failed to connect to the database");
 
-    println!("Connected to the database successfully!"); // Add this line for database connection feedback
+    println!("Connected to the database successfully!");
 
-    // Create the Axum application
+    // Set up CORS
+    let cors = CorsLayer::new().allow_origin(Any);
+
+    // Create router with routes and layers
     let app = Router::new()
-        .route("/", axum::routing::get(handler))
-        .layer(Extension(pool));
+        .route("/", get(root))
+        .layer(Extension(pool))
+        .layer(cors);
 
-    // Define the server address
+    // Set up and start server
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
-
-    // Start the server
-    println!("Listening on http://{}", addr); // Add this line for server feedback
-    Server::bind(&addr)
+    println!("listening on {}", addr);
+    
+    axum::Server::bind(&addr)
         .serve(app.into_make_service())
         .await
         .unwrap();
 }
 
-// Sample handler function
-async fn handler(Extension(_pool): Extension<PgPool>) -> &'static str {
-    "Hello, world!"
+async fn root(Extension(_pool): Extension<PgPool>) -> impl IntoResponse {
+    let response = serde_json::json!({
+        "message": "Hello, World!",
+        "status": "success"
+    });
+    
+    (StatusCode::OK, Json(response))
 }
