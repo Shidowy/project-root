@@ -19,7 +19,7 @@ const About: React.FC = () => {
           here to protect your business 24/7.
         </p>
       </div>
-      <Footer /> {/* Ensure Footer is included at the bottom */}
+      <Footer /> 
     </div>
   );
 };

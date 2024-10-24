@@ -1,0 +1,17 @@
+// This is your database connection
+datasource db {
+  provider = "postgresql" // or your chosen database provider
+  url      = env("DATABASE_URL") // Make sure to set this in your .env file
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+}

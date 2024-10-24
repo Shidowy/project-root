@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 import Home from './pages/Home/home';
 import './App.css';
 import SocialMediaDashboard from './pages/dashboard/dashboard';
@@ -14,9 +15,9 @@ function App() {
   const [message, setMessage] = useState<string>('');
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_API_URL)
-      .then(response => response.text())
-      .then(setMessage);
+    axios.get(import.meta.env.VITE_API_URL)
+      .then(response => setMessage(response.data))
+      .catch(error => console.error('Error fetching data:', error));
   }, []);
 
   return (
