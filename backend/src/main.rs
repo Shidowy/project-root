@@ -117,3 +117,4 @@ async fn print_users(pool: &PgPool) -> Result<(), sqlx::Error> {
 
     Ok(())
 }
+
