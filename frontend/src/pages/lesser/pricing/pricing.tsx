@@ -24,33 +24,12 @@ const Pricing: React.FC = () => {
         <div className="pricing-cards">
           <PricingCard 
             title="Starter Plan" 
-            price="$99.99/month" 
+            price="$/month" 
             benefits={[
               "Coverage for 1 Account",
-              "Up to $50,000 in Compensation",
+              "Compensation based on Account Value",
               "Account Recovery Assistance",
-              "12-Hour Response Time"
-            ]}
-          />
-          <PricingCard 
-            title="Growth Plan" 
-            price="$199.99/month" 
-            benefits={[
-              "Coverage for up to 3 Accounts",
-              "Up to $150,000 in Compensation",
-              "Priority Recovery Support",
-              "8-Hour Response Time"
-            ]}
-          />
-          <PricingCard 
-            title="Premium Plan" 
-            price="Custom Pricing" 
-            benefits={[
-              "Coverage for Unlimited Accounts",
-              "Compensation Based on Total Account Value",
-              "Dedicated Account Recovery Team",
-              "Immediate 24/7 Support",
-              "Customizable Protection Levels"
+              "Fast response time"
             ]}
           />
         </div>

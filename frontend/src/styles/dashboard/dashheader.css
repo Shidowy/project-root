@@ -1,0 +1,107 @@
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px; /* Padding for spacing */
+    background-color: #f9f9f9; /* Light mode background */
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dash-header.dark-mode {
+    background-color: #333; /* Dark mode background */
+    color: #fff; /* Text color in dark mode */
+}
+
+.dash-header:hover {
+    background-color: #f1f1f1; /* Hover effect for light mode */
+}
+
+.dash-header.dark-mode:hover {
+    background-color: #444; /* Hover effect for dark mode */
+}
+
+.dash-header h1 {
+    font-size: 26px;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.dash-controls {
+    display: flex;
+    align-items: center;
+}
+
+.time-range-select {
+    margin-right: 15px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.time-range-select:focus {
+    border-color: #007bff;
+    background-color: #eef5ff; /* Light blue on focus */
+}
+
+.time-range-select.dark-mode {
+    border-color: #666; /* Dark mode border */
+    background-color: #444; /* Dark mode background */
+    color: #fff; /* Text color in dark mode */
+}
+
+.dark-mode-toggle {
+    padding: 8px 15px;
+    background-color: #007bff; /* Default button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #0056b3; /* Hover color */
+}
+
+.dark-mode-toggle:active {
+    transform: scale(0.95);
+}
+
+.dark-mode-toggle.dark-mode {
+    background-color: #555; /* Dark mode button color */
+}
+
+.dark-mode-toggle.dark-mode:hover {
+    background-color: #666; /* Hover color in dark mode */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .dash-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dash-controls {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .time-range-select {
+        flex: 1;
+        margin-right: 10px;
+    }
+
+    .dark-mode-toggle {
+        flex-shrink: 0;
+    }
+}

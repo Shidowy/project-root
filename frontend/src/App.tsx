@@ -8,7 +8,7 @@ import Pricing from './pages/lesser/pricing/pricing';
 import Home from './pages/Home/home';
 import Signup from './pages/signup/signup';
 import Login from './pages/login/login';
-import SocialMediaDashboard from './pages/dashboard/dashboard';
+import Dashboard from './pages/dashboard/dashboard';
 
 interface BackendResponse {
   message: string;
@@ -43,10 +43,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<SocialMediaDashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <div>
-          <h1>Message from Backend</h1>
           {loading && <p>Loading...</p>}
           {error && <p style={{ color: 'red' }}>{error}</p>}
           {!loading && !error && <p>{message}</p>} {/* Display just the message string */}
