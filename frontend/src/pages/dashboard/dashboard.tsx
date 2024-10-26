@@ -3,7 +3,7 @@ import DashboardHeader from '../../components/ui/dashboard/dashheader';
 import Metrics from '../../components/ui/dashboard/metrics';
 import FollowersChart from '../../components/ui/dashboard/followerchart';
 import RecentPosts from '../../components/ui/dashboard/recent';
-import DashNav from '../../components/ui/dashboard/dashnav'; // Uncomment if using
+// import DashNav from '../../components/ui/dashboard/dashnav'; // Uncomment if using
 
 // Mock data
 const followerData = [
