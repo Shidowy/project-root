@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     axios.get<BackendResponse>(import.meta.env.VITE_API_URL)
       .then(response => {
-        setMessage(response.data.message); // Access the message property
+        setMessage(response.data.message); // Access the message propertyd
         setLoading(false);
       })
       .catch(error => {

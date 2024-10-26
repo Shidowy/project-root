@@ -1,1 +1,1 @@
-C:\Users\wyatt.WYATTS-DELL\OneDrive\Documents\GitHub\project-root\backend\target\debug\backend.exe: C:\Users\wyatt.WYATTS-DELL\OneDrive\Documents\GitHub\project-root\backend\src\database.rs C:\Users\wyatt.WYATTS-DELL\OneDrive\Documents\GitHub\project-root\backend\src\main.rs
+C:\Users\wyatt.WYATTS-DELL\OneDrive\Documents\Github\project-root\backend\target\debug\backend.exe: C:\Users\wyatt.WYATTS-DELL\OneDrive\Documents\Github\project-root\backend\src\database.rs C:\Users\wyatt.WYATTS-DELL\OneDrive\Documents\Github\project-root\backend\src\main.rs
