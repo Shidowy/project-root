@@ -8,7 +8,7 @@ interface HeaderProps {
   darkMode: boolean;
   setDarkMode: (value: boolean) => void;
 }
-
+//d
 const DashboardHeader: React.FC<HeaderProps> = ({ timeRange, setTimeRange, darkMode, setDarkMode }) => (
   <header className={`dash-header ${darkMode ? 'dark-mode' : ''}`}>
     <h1>Hi, Wyatt</h1>
