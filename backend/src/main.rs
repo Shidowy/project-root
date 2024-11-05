@@ -4,7 +4,7 @@ use tower_http::cors::{Any, CorsLayer};
 use sqlx::{PgPool, FromRow};
 use dotenvy::dotenv;
 use std::env;
-use serde::{Deserialize, Serialize};
+use serde::{Deserialize, Serializ};
 mod database;  // Add this line
 
 #[derive(Deserialize)]
